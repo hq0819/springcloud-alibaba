@@ -12,7 +12,16 @@ spring:
         server-addr: localhost:8848
         namespace: a21fa4a7-2e92-47d7-9396-81a821c373ca
         file-extension: yaml
+    sentinel:
+      transport:
+        dashboard: localhost:8849
+        port: 8719
 
 nacos-service:
   ribbon:
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+feign:
+  sentinel:
+    enabled: true
+
+
