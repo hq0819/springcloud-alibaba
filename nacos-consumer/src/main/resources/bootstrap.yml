@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: nacos-consumer
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        namespace: a21fa4a7-2e92-47d7-9396-81a821c373ca
+      config:
+        server-addr: localhost:8848
+        namespace: a21fa4a7-2e92-47d7-9396-81a821c373ca
+        file-extension: yaml
+
+nacos-service:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
