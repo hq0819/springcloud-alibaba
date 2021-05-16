@@ -6,16 +6,25 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848
-        namespace: a21fa4a7-2e92-47d7-9396-81a821c373ca
+        server-addr: localhost
+        namespace: 2316647f-85c8-4298-8413-ff3219e4c09f
       config:
         server-addr: localhost:8848
-        namespace: a21fa4a7-2e92-47d7-9396-81a821c373ca
+        namespace: 2316647f-85c8-4298-8413-ff3219e4c09f
         file-extension: yaml
     sentinel:
       transport:
         dashboard: localhost:8849
         port: 8719
+      datasource:
+        nacos:
+         serverAddr: localhost
+         username: nacos
+         password: nacos
+         dataId: sentinelDatasoucce
+         namespace: 2316647f-85c8-4298-8413-ff3219e4c09f
+
+
 
 nacos-service:
   ribbon:
@@ -24,4 +33,11 @@ feign:
   sentinel:
     enabled: true
 
+  compression:
+    request:
+      enabled: true
+      mime-types: [text/xml,application/xml,application/json]
+      min-request-size: 512
+    response:
+      enabled: true
 

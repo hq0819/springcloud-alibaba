@@ -6,9 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="nacos-consumer" />
-        <module name="cloud" />
         <module name="nacos-service" />
+        <module name="nacos-consumer" />
+        <module name="spring-gateway" />
       </profile>
     </annotationProcessing>
   </component>
@@ -17,6 +17,7 @@
       <module name="cloud" options="-parameters" />
       <module name="nacos-consumer" options="-parameters" />
       <module name="nacos-service" options="-parameters" />
+      <module name="spring-gateway" options="-parameters" />
     </option>
   </component>
 </project>

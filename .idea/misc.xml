@@ -12,6 +12,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/nacos-service/pom.xml" />
         <option value="$PROJECT_DIR$/nacos-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-gateway/pom.xml" />
       </list>
     </option>
   </component>
