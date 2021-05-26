@@ -13,4 +13,3 @@ public class HelloSentinelFactory implements FallbackFactory<HelloService> {
         return helloService;
     }
 }
-        

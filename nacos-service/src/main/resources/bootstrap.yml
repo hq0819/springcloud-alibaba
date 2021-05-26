@@ -1,5 +1,10 @@
 
 spring:
+  datasource:
+    url: jdbc:mysql://14.18.72.130:3306/cloud #jdbc:oracle:thin:@localhost:1521:HEQIN
+    username: heqin
+    password: Heqin19960199..
+    driver-class-name: com.mysql.cj.jdbc.Driver #oracle.jdbc.driver.OracleDriver
   application:
     name: nacos-service
   profiles:
@@ -7,11 +12,35 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848
-        namespace: 2316647f-85c8-4298-8413-ff3219e4c09f
+        server-addr: 14.18.72.130:8848
+        namespace: 36454dc5-4986-4ba9-b79c-221274e1f4c9
       config:
-        server-addr: localhost:8848
-        namespace: 2316647f-85c8-4298-8413-ff3219e4c09f
+        server-addr: 14.18.72.130:8848
+        namespace: 36454dc5-4986-4ba9-b79c-221274e1f4c9
         file-extension: yaml
+    alibaba:
+      seata:
+        tx-service-group: my_test_tx_group
+
+
 server:
   port: 8002
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
+logging:
+  level:
+   com.hq.service.mapper.*: debug
+
+seata:
+  service:
+    vgroup-mapping:
+      my_test_tx_group: default
+    grouplist:
+      default: 14.18.72.130:8091
+  enabled: true
+  application-id: nacos-service
+
+

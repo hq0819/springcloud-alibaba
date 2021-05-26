@@ -1,0 +1,36 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hq.service.mapper.OrdersMapper">
+
+    <select id="queryOrders" resultType="com.hq.pojo.Orders">
+        select * from  orders
+    </select>
+
+    <update id="updateOrder" parameterType="com.hq.pojo.Orders">
+        update orders
+        <set>
+            <if test="goodsName!=null">
+                goodsName=#{goodsName}
+            </if>
+            <if test="price!=null">
+                price=#{price}
+            </if>
+            <if test="comments!=null">
+                comments=#{comments}
+            </if>
+            <if test="goodStatus!=null">
+                goodStatus=#{goodStatus}
+            </if>
+        </set>
+        where orderId=#{orderId}
+    </update>
+
+
+    <insert id="createOrder" parameterType="com.hq.pojo.Orders">
+        insert into orders(orderId,goodsName,price,nums,comments,timestamp,goodStatus)
+        values (default,#{goodsName},#{price},#{nums},#{comments},#{timestamp},#{goodStatus})
+    </insert>
+
+</mapper>
