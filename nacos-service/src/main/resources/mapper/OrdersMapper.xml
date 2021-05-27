@@ -11,17 +11,8 @@
     <update id="updateOrder" parameterType="com.hq.pojo.Orders">
         update orders
         <set>
-            <if test="goodsName!=null">
-                goodsName=#{goodsName}
-            </if>
-            <if test="price!=null">
-                price=#{price}
-            </if>
-            <if test="comments!=null">
-                comments=#{comments}
-            </if>
             <if test="goodStatus!=null">
-                goodStatus=#{goodStatus}
+                goodStatus=#{goodStatus},
             </if>
         </set>
         where orderId=#{orderId}
@@ -29,8 +20,11 @@
 
 
     <insert id="createOrder" parameterType="com.hq.pojo.Orders">
+        <selectKey resultType="int"  keyProperty="orderId"  order="BEFORE">
+            select max(orderId)+1  from orders
+        </selectKey>
         insert into orders(orderId,goodsName,price,nums,comments,timestamp,goodStatus)
-        values (default,#{goodsName},#{price},#{nums},#{comments},#{timestamp},#{goodStatus})
+        values (#{orderId},#{goodsName},#{price},#{nums},#{comments},#{timestamp},#{goodStatus})
     </insert>
 
 </mapper>

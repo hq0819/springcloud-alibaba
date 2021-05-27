@@ -1,4 +1,9 @@
 spring:
+  datasource:
+    url: jdbc:mysql://14.18.72.130:3306/service_consumer #jdbc:oracle:thin:@localhost:1521:HEQIN
+    username: heqin
+    password: Heqin19960199..
+    driver-class-name: com.mysql.cj.jdbc.Driver #oracle.jdbc.driver.OracleDriver
   application:
     name: nacos-consumer
   profiles:
@@ -18,20 +23,9 @@ spring:
         port: 8719
 
 
-      log:
-        dir: E:\sentinel
-      datasource:
-        ds:
-          file: a.txt
-          nacos:
-            serverAddr: 14.18.72.130:8848
-            username: nacos
-            password: nacos
-            dataId: sentinelDatasoucce
-            namespace: 36454dc5-4986-4ba9-b79c-221274e1f4c9
-
-
-
+    #alibaba:
+      #seata:
+        #tx-service-group: my_test_tx_group
 
 
 
@@ -50,3 +44,14 @@ feign:
     response:
       enabled: true
 
+
+seata:
+  application-id: nacos-consumer
+  service:
+    vgroup-mapping:
+      my_test_tx_group: default
+    grouplist:
+      default: 14.18.72.130:8091
+  tx-service-group: my_test_tx_group
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
