@@ -22,9 +22,9 @@ public class AccountController {
         BigDecimal amount1 = account.getAmount();
 
             BigDecimal decimal = new BigDecimal(amount);
-            if (amount1.compareTo(decimal) == -1){
+            /*if (amount1.compareTo(decimal) == -1){
                 throw new RuntimeException("付款失败");
-            }
+            }*/
             BigDecimal subtract = amount1.subtract(decimal);
             account.setAmount(subtract);
             accountService.updateByPrimaryKey(account);

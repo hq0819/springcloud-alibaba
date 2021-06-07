@@ -19,8 +19,7 @@ public class OrderController {
     @Autowired
     OrderService orderService;
 
-    @Autowired
-    AccountFeignService accountFeignService;
+
 
 
     @RequestMapping("/queryOrders")
@@ -29,21 +28,16 @@ public class OrderController {
     }
 
     @RequestMapping("/doOrders")
-    @GlobalTransactional(rollbackFor = Exception.class)
-    public List doOrders(){
+    public List doOrders(int num){
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         Orders orders = new Orders();
         orders.setComments("尽快发货");
         orders.setGoodsName("苹果");
-        orders.setNum(20);
+        orders.setNum(num);
         orders.setPrice(100);
         orders.setTimestamp(timestamp);
-        orders.setGoodStatus("待付款");
-        orderService.createOrder(orders);
-        double price = orders.getPrice();
-        accountFeignService.payMoney("422446213",orders.getPrice());
         orders.setGoodStatus("已付款");
-        orderService.updateOrder(orders);
+        orderService.createOrder(orders);
         return orderService.queryOrders();
 
     }

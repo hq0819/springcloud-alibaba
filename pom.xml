@@ -17,6 +17,7 @@
         <module>nacos-service</module>
         <module>nacos-consumer</module>
         <module>spring-gateway</module>
+        <module>cloudd-rocketmq</module>
     </modules>
 
     <dependencyManagement>

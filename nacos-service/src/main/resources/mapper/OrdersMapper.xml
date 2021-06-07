@@ -20,8 +20,8 @@
 
 
     <insert id="createOrder" parameterType="com.hq.pojo.Orders">
-        <selectKey resultType="int"  keyProperty="orderId"  order="BEFORE">
-            select max(orderId)+1  from orders
+        <selectKey resultType="long"  keyProperty="orderId"  order="BEFORE">
+            select IFNULL(max(orderId),0)+1  from orders
         </selectKey>
         insert into orders(orderId,goodsName,price,nums,comments,timestamp,goodStatus)
         values (#{orderId},#{goodsName},#{price},#{nums},#{comments},#{timestamp},#{goodStatus})

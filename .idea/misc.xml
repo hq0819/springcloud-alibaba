@@ -13,6 +13,7 @@
         <option value="$PROJECT_DIR$/nacos-service/pom.xml" />
         <option value="$PROJECT_DIR$/nacos-consumer/pom.xml" />
         <option value="$PROJECT_DIR$/spring-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/cloudd-rocketmq/pom.xml" />
       </list>
     </option>
   </component>
