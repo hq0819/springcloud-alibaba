@@ -1,7 +1,20 @@
 spring:
   cloud:
     stream:
+      bindings:
+        output:
+          destination: top
+        input:
+          destination: top
+          group: group001
       rocketmq:
         binder:
-          name-server: 127.0.0.1:9876
+          name-server: 14.18.72.130:9876
 
+
+server:
+  port: 9001
+
+logging:
+  level:
+   - org.springframework.cloud.stream.*: debug
