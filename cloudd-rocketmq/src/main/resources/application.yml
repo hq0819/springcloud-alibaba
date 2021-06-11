@@ -7,9 +7,19 @@ spring:
         input:
           destination: top
           group: group001
+
+
+
       rocketmq:
         binder:
           name-server: 14.18.72.130:9876
+        bindings:
+          input:
+            consumer:
+              tags: tag01
+
+
+
 
 
 server:
